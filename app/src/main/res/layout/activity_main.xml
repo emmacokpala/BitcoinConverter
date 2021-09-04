@@ -7,27 +7,28 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/bitcoinAmountHint"
-        android:layout_width="wrap_content"
+        android:id="@+id/nairaAmountHint"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
         android:autofillHints="test"
-        android:hint="@string/bitcoin_amount_required"
+        android:hint="@string/amount_required"
         android:inputType="numberDecimal"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/bitcoinAmount"
+        android:id="@+id/nairaAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:text="@string/input_bitcoin_amount"
+        android:text="@string/input_naira_amount"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bitcoinAmountHint" />
+        app:layout_constraintTop_toBottomOf="@+id/nairaAmountHint" />
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/roundUpToggle"
@@ -40,7 +41,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bitcoinAmount" />
+        app:layout_constraintTop_toBottomOf="@+id/nairaAmount" />
 
     <Button
         android:id="@+id/convertButton"
@@ -64,6 +65,6 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/convertButton"
-        tools:text="NGN 1000000" />
+        tools:text="NGN 1000000.00" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

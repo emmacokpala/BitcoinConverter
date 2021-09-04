@@ -4,45 +4,35 @@ import android.icu.text.NumberFormat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.bitcoinconverter.databinding.ActivityMainBinding
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    //bind layout and IDs after Gradle module setup
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding //Bind layout and ID in gradle module
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        //set Convert button to function
-        binding.convertButton.setOnClickListener {
+        binding.convertButton.setOnClickListener { //set response when button is clicked
             calculateConversion()
         }
     }
 
-    //create private function for conversion calculation
-    private fun calculateConversion() {
-        val conversion = binding.bitcoinAmountHint.text.toString().toDoubleOrNull()
-        if (conversion == null || conversion == 0.0) {
-            displayConversion(0.0)
-            return
+    private fun calculateConversion() { //set algorithm for conversion calculation
+        val conversion = binding.nairaAmountHint.text.toString().toDoubleOrNull()
+        if (conversion == null || conversion == 0.00) {
+            displayConversion(0.00)
+            return //avoids app crashing when edit field input is empty and convert button activated
         }
-        var rate = 20677810.04 * conversion
-
-        //check toggle button return rounded up figure
+        val rate = conversion / 20677810.04 //used BTC to NGN conversion rate as at 03/09/2021
+        var convert = String.format("%.2f", rate).toDouble() //formats result to 2dp default
         if (binding.roundUpToggle.isChecked) {
-            rate = kotlin.math.ceil(rate)
+            convert = convert.let { kotlin.math.round(it) } //Activates the round up toggle switch
         }
-        displayConversion(rate)
+        displayConversion(convert)
     }
 
-    //set to display result and formatting to include Nigerian currency symbol
-    private fun displayConversion(rate: Double) {
+    private fun displayConversion(convert: Double) { //set attributes for results display
         binding.result.text =
-            getString(
-                R.string.result,
-                NumberFormat.getCurrencyInstance(Locale("us", "NG")).format(rate)
-            )
+            getString(R.string.result, NumberFormat.getNumberInstance().format(convert))
     }
 }
