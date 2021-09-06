@@ -20,28 +20,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/nairaAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:text="@string/input_naira_amount"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nairaAmountHint" />
-
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/roundUpToggle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="250dp"
         android:checked="true"
         android:text="@string/round_up_amount"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nairaAmount" />
+        app:layout_constraintTop_toBottomOf="@+id/convertButton" />
 
     <Button
         android:id="@+id/convertButton"
@@ -53,18 +43,21 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/roundUpToggle" />
+        app:layout_constraintTop_toBottomOf="@+id/nairaAmountHint" />
 
     <TextView
         android:id="@+id/result"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="9dp"
         android:layout_marginEnd="15dp"
+        android:textAlignment="viewEnd"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/convertButton"
-        tools:text="NGN 1000000.00" />
+        tools:text="BTC 10000.00" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

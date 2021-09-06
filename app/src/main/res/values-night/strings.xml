@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="input_naira_amount">Input Naira Amount</string>
-    <string name="amount_required">Amount Required</string>
-    <string name="round_up_amount">Round Up Amount?</string>
+    <string name="amount_required">Tap to Input Naira Amount</string>
+    <string name="round_up_amount">Round Up?</string>
     <string name="convert">Convert</string>
     <string name="result">You have BTC %s</string>
 </resources>

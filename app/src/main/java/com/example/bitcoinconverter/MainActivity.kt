@@ -15,6 +15,9 @@ class MainActivity : AppCompatActivity() {
         binding.convertButton.setOnClickListener { //set response when button is clicked
             calculateConversion()
         }
+        binding.roundUpToggle.setOnClickListener { //set response when button is clicked
+            calculateConversion()
+        }
     }
 
     private fun calculateConversion() { //set algorithm for conversion calculation
@@ -23,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             displayConversion(0.00)
             return //avoids app crashing when edit field input is empty and convert button activated
         }
-        val rate = conversion / 20677810.04 //used BTC to NGN conversion rate as at 03/09/2021
+        val rate = conversion / 21441056.19 //used BTC to NGN conversion rate as at 22.45 06/09/2021
         var convert = String.format("%.2f", rate).toDouble() //formats result to 2dp default
         if (binding.roundUpToggle.isChecked) {
             convert = convert.let { kotlin.math.round(it) } //Activates the round up toggle switch
