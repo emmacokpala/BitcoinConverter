@@ -1,8 +1,8 @@
 package com.example.bitcoinconverter
 
 import android.icu.text.NumberFormat
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.bitcoinconverter.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             displayConversion(0.00)
             return //avoids app crashing when edit field input is empty and convert button activated
         }
-        val rate = conversion / 21441056.19 //used BTC to NGN conversion rate as at 22.45 06/09/2021
+        val rate = conversion / 19151415.75 //used BTC to NGN conversion rate as at 22.45 06/09/2021
         var convert = String.format("%.2f", rate).toDouble() //formats result to 2dp default
         if (binding.roundUpToggle.isChecked) {
             convert = convert.let { kotlin.math.round(it) } //Activates the round up toggle switch
